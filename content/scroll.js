@@ -56,6 +56,25 @@ var scroll = (() => {
         }
       }),
       new Promise((resolve) => {
+        var diagrams = Array.from(document.querySelectorAll('code.plantuml'))
+        if (!state.content.plantuml || !diagrams.length) {
+          resolve()
+        }
+        else {
+          var fallback = setTimeout(() => {
+            clearInterval(timeout)
+            resolve()
+          }, 6000)
+          var timeout = setInterval(() => {
+            if (puml.loaded) {
+              clearTimeout(fallback)
+              clearInterval(timeout)
+              resolve()
+            }
+          }, 50)
+        }
+      }),
+      new Promise((resolve) => {
         if (!state.content.mathjax) {
           resolve()
         }

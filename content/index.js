@@ -93,6 +93,9 @@ var onupdate = {
     if (state.content.mermaid) {
       setTimeout(() => mmd.render(), 0)
     }
+    if (state.content.plantuml) {
+      setTimeout(() => puml.render(), 20)
+    }
   }
 }
 
@@ -107,8 +110,12 @@ var update = (update) => {
     setTimeout(() => mmd.render(), 40)
   }
 
+  if (state.content.plantuml) {
+    setTimeout(() => puml.render(), 60)
+  }
+
   if (state.content.mathjax) {
-    setTimeout(() => mj.render(), 60)
+    setTimeout(() => mj.render(), 80)
   }
 }
 
@@ -127,6 +134,12 @@ var render = (md) => {
       state.html = state.html.replace(
         /<code class="language-(?:mermaid|mmd)">/gi,
         '<code class="mermaid">'
+      )
+    }
+    if (state.content.plantuml) {
+      state.html = state.html.replace(
+        /<code class="language-(?:plantuml|puml)">/gi,
+        '<code class="plantuml">'
       )
     }
     if (state.content.toc) {

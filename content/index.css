@@ -25,7 +25,7 @@ details summary {
     break-after: avoid;
   }
   /*avoid page breaks within these tags*/
-  pre, blockquote, summary, table, math, svg {
+  pre, blockquote, summary, table, math, svg, .plantuml {
     break-inside: avoid;
   }
   /*hide sidebar*/
@@ -338,6 +338,36 @@ pre:has(> code.mermaid) {
 /*mermaid text bold effect*/
 svg[id^=mermaid] text {
   stroke: none !important;
+}
+
+/*PlantUML*/
+.markdown-body .plantuml,
+.markdown-theme .plantuml {
+  overflow: auto;
+  margin: 1em 0;
+  text-align: center;
+}
+.markdown-body .plantuml a,
+.markdown-theme .plantuml a {
+  border: 0 !important;
+  text-decoration: none !important;
+}
+.markdown-body .plantuml img,
+.markdown-theme .plantuml img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+}
+.markdown-body .plantuml-error,
+.markdown-theme .plantuml-error {
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d1242f;
+  color: #d1242f;
+  background: #fff8f8;
+  text-align: left;
+  white-space: normal;
 }
 
 /*emojione*/

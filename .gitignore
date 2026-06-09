@@ -8,3 +8,5 @@ package-lock.json
 /*.zip
 /manifest.json
 /background/index-compilers.js
+
+MyMarkdownViewer-unpacked/

@@ -51,6 +51,7 @@ md.storage.defaults = (compilers) => {
       emoji: false,
       mathjax: false,
       mermaid: false,
+      plantuml: false,
       syntax: true,
       toc: false,
     },
@@ -81,10 +82,19 @@ md.storage.defaults = (compilers) => {
 md.storage.bug = (res) => {
   // reload extension bug
   chrome.permissions.getAll((permissions) => {
+    var required = chrome.runtime.getManifest().host_permissions || []
     var origins = Object.keys(res.origins || {})
-    chrome.permissions.remove({
-      origins: permissions.origins
-        .filter((origin) => origins.indexOf(origin.slice(0, -2)) === -1)
+    var removable = permissions.origins
+      // 中文注释：Chrome 不允许移除 manifest 中声明的必需权限，只清理可选来源权限。
+      .filter((origin) => required.indexOf(origin) === -1)
+      .filter((origin) => origins.indexOf(origin.slice(0, -2)) === -1)
+
+    if (!removable.length) return
+
+    chrome.permissions.remove({origins: removable}, () => {
+      if (chrome.runtime.lastError) {
+        console.warn('[Markdown Viewer] 清理可选来源权限失败。', chrome.runtime.lastError.message)
+      }
     })
   })
 }
@@ -115,6 +125,9 @@ md.storage.migrations = (state) => {
   }
   if (state.content.mermaid === undefined) {
     state.content.mermaid = false
+  }
+  if (state.content.plantuml === undefined) {
+    state.content.plantuml = false
   }
   if (state.themes === undefined || state.themes instanceof Array) {
     state.themes = {wide: false}

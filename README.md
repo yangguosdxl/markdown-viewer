@@ -18,6 +18,7 @@
 - Table of Contents (ToC)
 - MathJax formulas ([mathjax])
 - Mermaid diagrams ([mermaid])
+- PlantUML 图表（[plantuml]）
 - Convert emoji shortnames (icons provided free by [EmojiOne][emojione])
 - Remember scroll position
 - Markdown Content-Type detection
@@ -116,6 +117,7 @@ Full **CommonMark** support including **GFM** tables and strikethrough **+**
 | **emoji**      | `false` | Convert emoji `:shortnames:` into EmojiOne images
 | **mathjax**    | `false` | Render MathJax formulas
 | **mermaid**    | `false` | Render Mermaid diagrams
+| **plantuml**   | `false` | 使用 plantuml.com 渲染 PlantUML 图表
 | **syntax**     | **`true`**  | Syntax highlighted fenced code blocks
 | **toc**        | `false` | Generate Table of Contents
 
@@ -164,6 +166,29 @@ Alternatively diagrams can be wrapped in HTML tags:
 - resize the diagram container vertically by dragging the bottom right corner of the code block up or down
 - zoom in and out by holding down the Shift key and then using your mouse wheel
 - pan by holding down the left mouse button and drag in any direction
+
+## PlantUML
+
+启用 `plantuml` 内容选项后，会使用 `https://www.plantuml.com/plantuml` 渲染 `plantuml` 或 `puml` 围栏代码块：
+
+    ```plantuml
+    @startuml
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+    @enduml
+    ```
+
+也可以使用 HTML 标签：
+
+```html
+<pre><code class="plantuml">
+@startuml
+Alice -> Bob: hello
+@enduml
+</code></pre>
+```
+
+PlantUML 源码会发送到公共 PlantUML Server 生成 SVG 图片。图片加载失败时，页面会显示错误提示，并在浏览器控制台输出错误日志。
 
 ## Syntax
 
@@ -378,6 +403,7 @@ SOFTWARE.
   [emojione]: https://emojione.com
   [mathjax]: https://www.mathjax.org
   [mermaid]: https://mermaid.js.org
+  [plantuml]: https://plantuml.com
   [prism]: https://prismjs.com
   [github-theme]: https://github.com/sindresorhus/github-markdown-css
   [cleanrmd]: https://pkg.garrickadenbuie.com/cleanrmd/#themes

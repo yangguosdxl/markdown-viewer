@@ -64,6 +64,7 @@ var Popup = () => {
         toc: 'Generate Table of Contents',
         mathjax: 'Render MathJax formulas',
         mermaid: 'Mermaid diagrams',
+        plantuml: '使用 plantuml.com 渲染 PlantUML 图表',
         syntax: 'Syntax highlighting for fenced code blocks',
       }
     },

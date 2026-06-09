@@ -1,37 +1,31 @@
 {
   "manifest_version": 3,
-  "name"            : "Markdown Viewer",
-  "version"         : "5.3",
-  "description"     : "Dark Mode • Themes • Autoreload • Mermaid Diagrams • MathJax • ToC • Syntax Highlighting",
-
-  "homepage_url": "https://chromewebstore.google.com/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk",
-
+  "name": "MyMarkdownViewer",
+  "version": "5.3",
+  "description": "Dark Mode • Themes • Autoreload • Mermaid Diagrams • PlantUML • MathJax • ToC • Syntax Highlighting",
+  "homepage_url": "https://github.com/simov/markdown-viewer",
   "icons": {
-    "16" : "/icons/default/16x16.png",
-    "19" : "/icons/default/19x19.png",
-    "38" : "/icons/default/38x38.png",
-    "48" : "/icons/default/48x48.png",
+    "16": "/icons/default/16x16.png",
+    "19": "/icons/default/19x19.png",
+    "38": "/icons/default/38x38.png",
+    "48": "/icons/default/48x48.png",
     "128": "/icons/default/128x128.png"
   },
-
   "action": {
     "default_icon": {
-      "16" : "/icons/default/16x16.png",
-      "19" : "/icons/default/19x19.png",
-      "38" : "/icons/default/38x38.png",
-      "48" : "/icons/default/48x48.png",
-      "128" : "/icons/default/128x128.png"
+      "16": "/icons/default/16x16.png",
+      "19": "/icons/default/19x19.png",
+      "38": "/icons/default/38x38.png",
+      "48": "/icons/default/48x48.png",
+      "128": "/icons/default/128x128.png"
     },
-    "default_title": "Markdown Viewer",
+    "default_title": "MyMarkdownViewer",
     "default_popup": "/popup/index.html"
   },
-
-  "background" : {
+  "background": {
     "service_worker": "/background/index.js"
   },
-
   "options_page": "/options/index.html",
-
   "web_accessible_resources": [
     {
       "matches": [
@@ -49,21 +43,18 @@
       ]
     }
   ],
-
   "permissions": [
     "storage",
     "scripting"
   ],
-
   "host_permissions": [
     "file:///*"
   ],
-
   "optional_host_permissions": [
     "*://*/"
   ],
-
   "optional_permissions": [
     "webRequest"
-  ]
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxHjg6rbqIGuFAFzQbUk55KrrRd9dhp2YhHx7Tqgi1O6VXdvVmJmfUyBoCfB/TRigzPupZ4M6yRe0CurGHfay14hZYLOMKZSs6Eo9I1xiF/KTAR9n11EQWUXKPhrvM6UAECMsK/yRZez2hXT7kNIJ4PMVXXhp1spQ/Sv7uYPedreYkBq8MQvxurw1sQBkDWZZsHyzUZ0yldWiFtlQou+CByAJWgyVkUm09tnvfaoVSN5f9qy3dJXTtQikvjeQI0RO9qG9bYIbF9s/F2Xg1S2Jq1KQRvb49XcboSvek3CXiFylC386dNqhkOyTSbLw5dFssLO5iASiaQSPv4Bkb9ZVDwIDAQAB"
 }
